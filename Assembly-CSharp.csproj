@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\FigureType\FigureType.cs" />
     <Compile Include="Assets\Scripts\Funnel.cs" />
     <Compile Include="Assets\Scripts\FunnelsController.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Singleton\Singleton.cs" />
     <Compile Include="Assets\Scripts\TrajectoryRenderer.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">

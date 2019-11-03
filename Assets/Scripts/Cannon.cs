@@ -16,7 +16,9 @@ public class Cannon : Singleton<Cannon>
 
     List<GameObject> allFigures = new List<GameObject>();
 
-    private void Start()
+    public Figure FigurePrefab { get { return figurePrefab; } private set { } }
+
+    private void Awake()
     {
         CreateFigure();
     }

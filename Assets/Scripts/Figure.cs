@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class Figure : MonoBehaviour
 {
+    [SerializeField]
     FigureType type;
-    public Sprite sprite;
 
-    private void Awake()
-    {
-        sprite = GetComponent<SpriteRenderer>().sprite;
-    }
+    public Sprite sprite;
 
     public Sprite Sprite { get { return sprite; } private set { } }
     public FigureType Type { get {return type;} private set { } }
