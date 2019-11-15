@@ -13,6 +13,15 @@ public class FunnelsController : Singleton<FunnelsController>
         SpawnRandomFunnels();
     }
 
+    public void MissFigure()
+    {
+        SpawnRandomFunnels();
+        for (int i = 0; i < allFunnels.Length; i++)
+        {
+            allFunnels[i].OnTouchFigure();
+        }
+    }
+
     public void SpawnRandomFunnels()
     {
         FigureType value;
@@ -44,4 +53,11 @@ public class FunnelsController : Singleton<FunnelsController>
         checkedRepeat.Clear();
     }
     
+
+    public void RefreshFunnels(int count)
+    {
+        if (count > allFunnels.Length) return;
+
+        
+    }
 }
