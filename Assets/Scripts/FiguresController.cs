@@ -7,6 +7,11 @@ public class FiguresController : Singleton<FiguresController>
     public Figure[] figures;
     public Dictionary<int, Sprite> figuresSprite = new Dictionary<int, Sprite>();
 
+    public int CountFigure {
+        get{ return figures.Length; }
+        private set { }
+    }
+
     private void Awake()
     {
         InitializeDicType();

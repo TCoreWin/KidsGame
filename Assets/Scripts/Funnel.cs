@@ -34,8 +34,6 @@ public class Funnel : MonoBehaviour
         boxCollider.enabled = false;
         StartCoroutine(Reload());
         animator.SetTrigger("Touch");
-
-        SetType((FigureType)Random.Range(0, 5));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -44,8 +42,9 @@ public class Funnel : MonoBehaviour
         {
             var collisionPoint = new Vector3(collision.transform.position.x, collision.transform.position.y, -6);
             GameManager.Instance.IncScore(collisionPoint);
-            OnTouchFigure();
-            FunnelsController.Instance.SpawnRandomFunnels();
+            //OnTouchFigure();
+            //FunnelsController.Instance.SpawnRandomFunnels();
+            FunnelsController.Instance.RefreshFunnels(this);
         }
         else
         {

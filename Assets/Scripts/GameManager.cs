@@ -5,14 +5,20 @@ using UnityEngine.UI;
 
 public class GameManager : Singleton<GameManager>
 {
+    //PUBLIC VARIABLES
     public Text scoreText;
     public ParticleSystem getScoreParticle;
+
+    //PRIVATE VARIABLES
     int score;
+
+    //PROPERTIES
+    public bool IsGameStarted { get; private set; }
 
     private void Start()
     {
-        
         score = 0;
+        IsGameStarted = false;
         scoreText.text = score.ToString();
     }
 
@@ -28,5 +34,13 @@ public class GameManager : Singleton<GameManager>
     public void LoseGame()
     {
         scoreText.text = "You LOSE!";
+        score = 0;
+        IsGameStarted = false;
+    }
+
+    public void StartGame()
+    {
+        IsGameStarted = true;
+        scoreText.text = "0";
     }
 }

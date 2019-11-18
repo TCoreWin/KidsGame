@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class Cannon : Singleton<Cannon>
 {
+    //PUBLIC VARIABLES
     public Transform muzzleRotatePoint;
     public Transform aimPoint;
     public TrajectoryRenderer tr;
     public SpriteRenderer spriteRendererFigure;
 
+    //PRIVATE VARIABLES
     Rigidbody2D figure;
     Figure figurePrefab;
     float power = 2f;
     Vector3 speed;
-
+    Vector2 mousePos = Vector2.zero;
     List<GameObject> allFigures = new List<GameObject>();
 
+    //PROPERTIES
     public Figure FigurePrefab { get { return figurePrefab; } private set { } }
 
     private void Awake()
@@ -35,12 +38,15 @@ public class Cannon : Singleton<Cannon>
 
     void Update()
     {
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //угол между вектором от объекта к мыше и осью х
-        var angle = Vector2.Angle(Vector2.right, mousePos - (Vector2)muzzleRotatePoint.position);
-        muzzleRotatePoint.eulerAngles = new Vector3(0, 0, muzzleRotatePoint.position.y<mousePos.y?angle:-angle);
+        if (GameManager.Instance.IsGameStarted)
+        {
+            MoveBarrel();
+            Shooting();
+        }
+    }
 
-        
+    private void Shooting()
+    {
         if (Input.GetMouseButton(0))
         {
             speed = (mousePos - (Vector2)aimPoint.position) * power;
@@ -54,7 +60,15 @@ public class Cannon : Singleton<Cannon>
             figure.AddForce(figure.mass * speed / Time.fixedDeltaTime);
             tr.ClearTrajectory();
             RefreshFigurePrefab();
-        }        
+        }
+    }
+
+    private void MoveBarrel()
+    {
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //угол между вектором от объекта к мыше и осью х
+        var angle = Vector2.Angle(Vector2.right, mousePos - (Vector2)muzzleRotatePoint.position);
+        muzzleRotatePoint.eulerAngles = new Vector3(0, 0, muzzleRotatePoint.position.y < mousePos.y ? angle : -angle);
     }
 
     void RefreshFigurePrefab()
