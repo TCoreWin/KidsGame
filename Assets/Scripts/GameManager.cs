@@ -40,6 +40,11 @@ public class GameManager : Singleton<GameManager>
 
     public void StartGame()
     {
+        Invoke("Test", 0.2f);
+    }
+
+    void Test()
+    {
         IsGameStarted = true;
         scoreText.text = "0";
     }
