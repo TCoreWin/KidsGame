@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 47948744}
   - component: {fileID: 47948746}
   m_Layer: 0
-  m_Name: Cannon
+  m_Name: CANNON
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -400,7 +400,7 @@ PrefabInstance:
     - target: {fileID: 2310168023804246180, guid: d55bdb64f3f008c49a97267961f67222,
         type: 3}
       propertyPath: m_Name
-      value: Particle System
+      value: Flash[PARTICLE]
       objectReference: {fileID: 0}
     - target: {fileID: 2310168023804246187, guid: d55bdb64f3f008c49a97267961f67222,
         type: 3}
