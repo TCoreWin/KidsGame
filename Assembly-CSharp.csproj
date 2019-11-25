@@ -87,7 +87,9 @@
     <Compile Include="Assets\Scripts\Funnel.cs" />
     <Compile Include="Assets\Scripts\FunnelsController.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\MissTimer.cs" />
     <Compile Include="Assets\Scripts\Singleton\Singleton.cs" />
+    <Compile Include="Assets\Scripts\Timer.cs" />
     <Compile Include="Assets\Scripts\TrajectoryRenderer.cs" />
     <None Include="Assets\GUIPackCartoon\Demo\Shaders\GrayTint.shader" />
     <None Include="Assets\GUIPackCartoon\Demo\Fonts\OFL.txt" />

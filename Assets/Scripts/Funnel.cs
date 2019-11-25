@@ -42,8 +42,7 @@ public class Funnel : MonoBehaviour
         {
             var collisionPoint = new Vector3(collision.transform.position.x, collision.transform.position.y, -6);
             GameManager.Instance.IncScore(collisionPoint);
-            //OnTouchFigure();
-            //FunnelsController.Instance.SpawnRandomFunnels();
+            MissTimer.Instance.RefreshTimer(5);
             FunnelsController.Instance.RefreshFunnels(this);
         }
         else
